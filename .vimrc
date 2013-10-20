@@ -24,6 +24,16 @@ Bundle 'gregsexton/MatchTag'
 Bundle 'JavaScript-Indent'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'ScrollColors'
+Bundle 'vim-scripts/vim-auto-save'
+Bundle 'scrooloose/syntastic'
+
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_jump=1
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 " Bundle Config End
 filetype plugin indent on
@@ -45,6 +55,9 @@ map <silent> <C-K> :wincmd k<CR>
 map <silent> <C-J> :wincmd j<CR>
 map <silent> <C-H> :wincmd h<CR>
 map <silent> <C-L> :wincmd l<CR>
+
+" AutoSave Settings
+let g:auto_save = 1
 
 " Color Scheme
 set t_Co=256
