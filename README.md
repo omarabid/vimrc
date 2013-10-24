@@ -19,10 +19,18 @@ $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 rpm -Uvh http://prdownloads.sourceforge.net/ctags/ctags-5.8-1.i386.rpm
 ```
 
-4- Finally, run the following command in Vim to install the vundle packages.
+4- Install the required Syntax checkers
+
+```
+npm install jslint -g
+npm install csslint -g
+pear install PHP_CodeSniffer
+```
+
+5- Finally, run the following command in Vim to install the vundle packages.
 
 ```
 $ BundleInstall
 ```
 
-5- You are ready to start coding!
+6- You are ready to start coding!
