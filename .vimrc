@@ -8,8 +8,9 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" Bundles
+" -- Bundles
 "
+
 " Bundle Manager
 Bundle 'gmarik/vundle'
 " Directory browser
@@ -32,12 +33,21 @@ Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 " Git Integration
 Bundle 'tpope/vim-fugitive'
+" Bufferline
+Bundle 'bling/vim-bufferline'
+" Undolist viewer
+Bundle 'sjl/gundo.vim'
+" Better HTML editing
+Bundle 'tpope/vim-surround'
 
-" Syntastic Configuration
+let g:bufferline_echo = 0 
+
+" -- Syntastic Configuration
 "
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_stl_ormat = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+" Status line customization
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -45,7 +55,8 @@ set statusline+=%*
 let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_html_checkers = ['w3']
-let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_checkers = ['php', 'phpcs']
+let g:syntastic_php_phpcs_args = "--standard=WordPress"
 
 " Bundle Config End
 filetype plugin indent on
@@ -86,11 +97,6 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
-" File Syntax Settings
-" tpl -> html
-au BufReadPost *.tpl set syntax=html
-au BufReadPost *.tpl set filetype=html
-
 " Backup settings
 set nobackup
 set noswapfile
@@ -99,8 +105,10 @@ set noswapfile
 set cul                                      
 hi CursorLine term=none cterm=none ctermbg=0
 
-" Key Shortcuts
-"
+" Backspace properly
+set backspace=indent,eol,start 
+
+" -- Key Shortcuts
 "
 
 " Disable keyboard arrows
@@ -110,10 +118,10 @@ nnoremap <right> <nop>
 nnoremap <down> <nop>
 
 " Keymap for switching panels
-map <silent> <C-K> :wincmd k<CR>
-map <silent> <C-J> :wincmd j<CR>
-map <silent> <C-H> :wincmd h<CR>
-map <silent> <C-L> :wincmd l<CR>
+map <silent> <SPACE>k :wincmd k<CR>
+map <silent> <SPACE>j :wincmd j<CR>
+map <silent> <SPACE>h :wincmd h<CR>
+map <silent> <SPACE>l :wincmd l<CR>
 
 " Keymap for TagBar
 nmap <F8> :TagbarToggle<CR>
@@ -124,3 +132,14 @@ nmap <F7> :Errors<CR>
 
 " Keymap for modes switching
 imap jj <Esc>
+
+" Selection Shortcuts
+nnoremap B vit
+nnoremap V vat
+
+" -- File Syntax Settings
+"
+
+" tpl -> html
+au BufReadPost *.tpl set syntax=html
+au BufReadPost *.tpl set filetype=html
