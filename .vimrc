@@ -21,6 +21,10 @@ Bundle 'majutsushi/tagbar'
 Bundle 'gregsexton/MatchTag'
 " Properly indent JavaScript Code 
 Bundle 'JavaScript-Indent' 
+" Properly indent PHP Code
+Bundle 'vim-scripts/PHP-correct-Indenting'
+" Properly indent PHP/HTML Code
+Bundle 'vim-scripts/php.vim-html-enhanced'
 " Plenty of color schemes
 Bundle 'flazz/vim-colorschemes' 
 " Easily switch between color schemes
@@ -55,8 +59,8 @@ set statusline+=%*
 let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_html_checkers = ['w3']
-let g:syntastic_php_checkers = ['php', 'phpcs']
-let g:syntastic_php_phpcs_args = "--standard=WordPress"
+let g:syntastic_php_checkers = ['phpcs']
+let g:syntastic_php_phpcs_args = "-v"
 
 " Bundle Config End
 filetype plugin indent on
@@ -77,10 +81,12 @@ let g:auto_save = 1
 set t_Co=256
 colorscheme symfony
 
-" Coding settings
-set tabstop=4
+" Indentation Settings
+set noexpandtab
 set shiftwidth=4
-set softtabstop=4
+set tabstop=4
+
+" Coding settings
 set number
 set mouse=a
 
