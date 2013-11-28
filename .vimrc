@@ -114,9 +114,6 @@ hi CursorLine term=none cterm=none ctermbg=0
 " Backspace properly
 set backspace=indent,eol,start 
 
-" Replace Function
-vmap r "_dP
-
 " -- Key Shortcuts
 "
 
@@ -145,6 +142,13 @@ imap jj <Esc>
 " Selection Shortcuts
 nnoremap B vit
 nnoremap V vat
+nnoremap W viw
+nnoremap X vi(
+nnoremap C vi"
+
+" Replace Function
+vmap r "_dP
+
 
 " -- File Syntax Settings
 "
