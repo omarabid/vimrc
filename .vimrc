@@ -60,7 +60,7 @@ let g:syntastic_javascript_checkers = ['jslint']
 let g:syntastic_css_checkers = ['csslint']
 let g:syntastic_html_checkers = ['w3']
 let g:syntastic_php_checkers = ['phpcs']
-let g:syntastic_php_phpcs_args = "-v"
+let g:syntastic_php_phpcs_args = ""
 
 " Bundle Config End
 filetype plugin indent on
@@ -113,6 +113,9 @@ hi CursorLine term=none cterm=none ctermbg=0
 
 " Backspace properly
 set backspace=indent,eol,start 
+
+" Replace Function
+vmap r "_dP
 
 " -- Key Shortcuts
 "
