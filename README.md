@@ -67,3 +67,5 @@ It's good to talk about some of the features that this particular setup bring
 5- Use `r` to replace selected text with text in the clipboard.
 
 6- Up, Left, Down and Right keys are disabled in command mode. Use `j`, `h`, `k`, and `l` instead.
+
+7- Use `cc` to comment/uncomment a block of code. More commands are available through the NerdCommenter plugin.
