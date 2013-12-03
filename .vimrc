@@ -45,6 +45,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'tpope/vim-surround'
 " Nerd Commenting
 Bundle 'scrooloose/nerdcommenter'
+" Substitute highliting
+Bundle 'osyo-manga/vim-over'
 
 let g:bufferline_echo = 0 
 
@@ -115,6 +117,12 @@ hi CursorLine term=none cterm=none ctermbg=0
 
 " Backspace properly
 set backspace=indent,eol,start 
+
+" -- Custom Commands
+"
+
+" Substitute highlighting
+command S execute "OverCommandLine"
 
 " -- Key Shortcuts
 "
