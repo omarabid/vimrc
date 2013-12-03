@@ -43,6 +43,8 @@ Bundle 'bling/vim-bufferline'
 Bundle 'sjl/gundo.vim'
 " Better HTML editing
 Bundle 'tpope/vim-surround'
+" Nerd Commenting
+Bundle 'scrooloose/nerdcommenter'
 
 let g:bufferline_echo = 0 
 
@@ -148,6 +150,9 @@ nnoremap C vi"
 
 " Replace Function
 vmap r "_dP
+
+" Comment Block Toggle
+vmap cc <leader>ci
 
 
 " -- File Syntax Settings
