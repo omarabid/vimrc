@@ -162,6 +162,9 @@ vmap r "_dP
 " Comment Block Toggle
 vmap cc <leader>ci
 
+" Keymap for pastemode switching
+set pastetoggle=²
+
 
 " -- File Syntax Settings
 "
