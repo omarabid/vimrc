@@ -3,6 +3,8 @@ vimrc
 
 The following repository is created to follow the changes in my vimrc configuration.
 
+P.S.: I use an AZERTY keyboard.
+
 ## Vim Setup
 
 1- First, install Vim (if not already installed). This configuration file is made to work with Vim (not gVim or Vi).
@@ -39,17 +41,19 @@ $ BundleInstall
 
 It's good to talk about some of the features that this particular setup bring
 
-1- Code Highlighting
+1- Code Highlighting.
 
-2- Syntax Checking for HTML, JavaScript, CSS and PHP
+2- Syntax Checking for HTML, JavaScript, CSS and PHP.
 
-3- A directory explorer
+3- A directory explorer.
 
-4- Intelligent Status Bar
+4- Intelligent Status Bar.
 
-5- AutoSave file
+5- AutoSave file.
 
-6- Enhanced code indenting for HTML, PHP and JavaScript
+6- Enhanced code indenting for HTML, PHP and JavaScript.
+
+7. Substitution and search highlighting.
 
 
 **Key Bindings**
@@ -71,3 +75,5 @@ It's good to talk about some of the features that this particular setup bring
 7- Use `cc` to comment/uncomment a block of code. More commands are available through the NerdCommenter plugin.
 
 8- Use `:S` to highlight substitution.
+
+9- Use `²` when in insert mode to toggle paste mode.
