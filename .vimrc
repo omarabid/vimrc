@@ -37,8 +37,6 @@ Bundle 'scrooloose/syntastic'
 Bundle 'bling/vim-airline'
 " Git Integration
 Bundle 'tpope/vim-fugitive'
-" Bufferline
-Bundle 'bling/vim-bufferline'
 " Undolist viewer
 Bundle 'sjl/gundo.vim'
 " Better HTML editing
@@ -48,7 +46,10 @@ Bundle 'scrooloose/nerdcommenter'
 " Substitute highliting
 Bundle 'osyo-manga/vim-over'
 
-let g:bufferline_echo = 0 
+" -- Airline Configuration
+"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts=1
 
 " -- Syntastic Configuration
 "
@@ -161,6 +162,9 @@ vmap r "_dP
 
 " Comment Block Toggle
 vmap cc <leader>ci
+
+" Move between buffers
+nmap <Tab> :bnext<CR>
 
 " Keymap for pastemode switching
 set pastetoggle=²
