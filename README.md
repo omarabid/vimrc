@@ -57,7 +57,7 @@ It's good to talk about some of the features that this particular setup bring
 
 6- Enhanced code indenting for HTML, PHP and JavaScript.
 
-7. Substitution and search highlighting.
+7- Substitution and search highlighting.
 
 
 **Key Bindings**
