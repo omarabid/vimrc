@@ -29,13 +29,17 @@ npm install csslint -g
 pear install PHP_CodeSniffer
 ```
 
-5- Finally, run the following command in Vim to install the vundle packages.
+5- Install a PowerLine patached font; this will make some symbols look nicer
+
+You can find the fonts here: https://github.com/Lokaltog/powerline-fonts
+
+6- Finally, run the following command in Vim to install the vundle packages.
 
 ```
 $ BundleInstall
 ```
 
-6- You are ready to start coding!
+7- You are ready to start coding!
 
 ### Features
 
