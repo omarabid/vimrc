@@ -31,6 +31,8 @@ Bundle 'ScrollColors'
 Bundle 'vim-scripts/vim-auto-save' 
 " Syntax Checking
 Bundle 'scrooloose/syntastic' 
+" SASS highlighting
+Bundle 'cakebaker/scss-syntax.vim'
 " Better Status line
 Bundle 'bling/vim-airline'
 " Git Integration
@@ -147,6 +149,13 @@ nmap <F7> :Errors<CR>
 
 " Keymap for modes switching
 imap jj <Esc>
+
+" keymap for resizing split windows
+map <left> :5winc ><CR>
+map <right> :5winc <<CR>
+map <down> :5winc +<CR>
+map <up> :5winc -<CR>
+
 
 " Selection Shortcuts
 nnoremap B vit
