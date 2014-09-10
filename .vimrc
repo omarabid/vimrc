@@ -21,6 +21,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'gregsexton/MatchTag'
 " Properly indent JavaScript Code 
 Bundle 'JavaScript-Indent' 
+Bundle 'vim-scripts/PHP-correct-Indenting'
 " Ultimate PHP plugin
 Bundle 'spf13/PIV'
 " Plenty of color schemes
