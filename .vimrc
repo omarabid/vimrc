@@ -162,7 +162,7 @@ nnoremap B vit
 nnoremap V vat
 nnoremap W viw
 nnoremap X vi(
-nnoremap C vi"
+nnoremap <expr> C 'vi' . (getline('.') =~ '"' ? '"'  : "'")
 
 " Replace Function
 vmap r "_dP
@@ -175,6 +175,9 @@ nmap <Tab> :bnext<CR>
 
 " Keymap for pastemode switching
 set pastetoggle=²
+
+" Autoformat document
+nnoremap F gg=G''
 
 
 " -- File Syntax Settings
