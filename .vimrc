@@ -73,6 +73,7 @@ filetype plugin indent on
 
 " Open NerdTree
 autocmd vimenter * NERDTree
+let NERDTreeShowHidden=1 
 
 " Minibuf Configuration
 let g:miniBufExplMapWindowNavVim = 1 
