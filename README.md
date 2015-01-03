@@ -3,7 +3,7 @@ vimrc
 
 The following repository is created to follow the changes in my vimrc configuration.
 
-P.S.: I use an AZERTY keyboard.
+Update: Since August, I moved to OSX (MacBook Pro) with a Qwerty keyboard.
 
 ## Vim Setup
 
