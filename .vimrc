@@ -39,6 +39,8 @@ Bundle 'cakebaker/scss-syntax.vim'
 Bundle 'bling/vim-airline'
 " Git Integration
 Bundle 'tpope/vim-fugitive'
+" Git Gutters
+Bundle 'airblade/vim-gitgutter'
 " Undolist viewer
 Bundle 'sjl/gundo.vim'
 " Better HTML editing
