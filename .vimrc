@@ -179,7 +179,7 @@ vmap cc <leader>ci
 nmap <Tab> :bnext<CR>
 
 " Keymap for pastemode switching
-set pastetoggle=²
+set pastetoggle=``
 
 " Autoformat document
 nnoremap F gg=G''
