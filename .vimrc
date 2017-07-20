@@ -1,8 +1,9 @@
 " Basic Settings
 set nocompatible 
 set fileformats=unix
-syntax on
+syntax off
 filetype off
+set autochdir
 
 " Bundles Manager
 set rtp+=~/.vim/bundle/vundle/
@@ -17,8 +18,6 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 " Source Code browser 
 Bundle 'majutsushi/tagbar' 
-" Match HTML Tags
-Bundle 'gregsexton/MatchTag'
 " Properly indent JavaScript Code 
 Bundle 'JavaScript-Indent' 
 " Improved indenting for PHP
@@ -31,10 +30,6 @@ Bundle 'flazz/vim-colorschemes'
 Bundle 'ScrollColors' 
 " Autosave
 Bundle 'vim-scripts/vim-auto-save' 
-" Syntax Checking
-Bundle 'scrooloose/syntastic' 
-" SASS highlighting
-Bundle 'cakebaker/scss-syntax.vim'
 " Better Status line
 Bundle 'bling/vim-airline'
 " Git Integration
@@ -49,16 +44,19 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 " Substitute highliting
 Bundle 'osyo-manga/vim-over'
+" Rust Syntax
+Bundle 'rust-lang/rust.vim'
 
 " -- Airline Configuration
 "
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
+set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
 
 " -- Syntastic Configuration
 "
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=1
+let g:syntastic_enable_signs=0
+let g:syntastic_auto_jump=0
 let g:syntastic_stl_ormat = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 " Status line customization
 set statusline+=%#warningmsg#
@@ -154,6 +152,7 @@ nmap <F7> :Errors<CR>
 
 " Keymap for modes switching
 imap jj <Esc>
+nmap nj :make -B<CR>
 
 " keymap for resizing split windows
 map <left> :5winc ><CR>
