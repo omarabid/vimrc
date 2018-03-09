@@ -1,12 +1,12 @@
 " Basic Settings
 set nocompatible 
 set fileformats=unix
-syntax off
+syntax on
 filetype off
 set autochdir
 
 " Bundles Manager
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.nvim/bundle/vundle/
 call vundle#rc()
 
 " -- Bundles
@@ -46,6 +46,14 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'osyo-manga/vim-over'
 " Rust Syntax
 Bundle 'rust-lang/rust.vim'
+" VIM Motion
+Bundle 'easymotion/vim-easymotion'
+" Terraform Highlighter
+Bundle 'hashivim/vim-terraform'
+
+" -- Leader Mapping
+"
+let mapleader = ","
 
 " -- Airline Configuration
 "
@@ -190,3 +198,9 @@ nnoremap F gg=G''
 " tpl -> html
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
+
+" Terraform Highlighting
+let g:terraform_align=1
+
+" close the current buffer 
+map <space>x :bp\|bd #<cr>
