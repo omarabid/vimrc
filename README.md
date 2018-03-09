@@ -1,45 +1,29 @@
 vimrc
 =====
 
-The following repository is created to follow the changes in my vimrc configuration.
+This repository keeps track of my Vim workflow.
 
-Update: Since August, I moved to OSX (MacBook Pro) with a Qwerty keyboard.
+This configuration assumes MacOS (Latest) and a Qwerty keyboard.
 
 ## Vim Setup
 
-1- First, install Vim (if not already installed). This configuration file is made to work with Vim (not gVim or Vi).
+1- Install NeoVim. This configuration file is made to work with NeoVim (not gVim or Vi). It might function with VIM but no garantuees.
 
-2- Second, install vundle the package manager of choice using the following command
-
-```
-$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-```
-
-3- Install the Exuberant Ctags module for the TagBar to work properly. Get the URL of the last package from `http://ctags.sourceforge.net/`
+2- Install vundle
 
 ```
-rpm -Uvh http://prdownloads.sourceforge.net/ctags/ctags-5.8-1.i386.rpm
+$ git clone https://github.com/gmarik/vundle.git ~/.nvim/bundle/vundle
 ```
 
-4- Install the required Syntax checkers
-
-```
-npm install jslint -g
-npm install csslint -g
-pear install PHP_CodeSniffer
-```
-
-5- Install a PowerLine patached font; this will make some symbols look nicer
-
-You can find the fonts here: https://github.com/Lokaltog/powerline-fonts
+3- Install a PowerLine font from https://github.com/Lokaltog/powerline-fonts
 
 6- Finally, run the following command in Vim to install the vundle packages.
 
 ```
-$ BundleInstall
+$ :BundleInstall
 ```
 
-7- You are ready to start coding!
+7- That's all.
 
 ### Features
 
