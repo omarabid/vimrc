@@ -7,7 +7,7 @@ set autochdir
 
 " Bundles Manager
 set rtp+=~/.nvim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " -- Bundles
 "
@@ -50,6 +50,10 @@ Bundle 'rust-lang/rust.vim'
 Bundle 'easymotion/vim-easymotion'
 " Terraform Highlighter
 Bundle 'hashivim/vim-terraform'
+
+call vundle#end()
+
+filetype plugin indent on
 
 " -- Leader Mapping
 "
@@ -204,3 +208,26 @@ let g:terraform_align=1
 
 " close the current buffer 
 map <space>x :bp\|bd #<cr>
+
+" Source: https://stackoverflow.com/a/7898979
+" This, probably, should move to a different file
+map <Space> :call ToggleFastMoveMode()<CR>
+
+vmap <Space> :call ToggleFastMoveMode()<CR>gv
+
+let g:fastMoveMode = 0
+
+function! ToggleFastMoveMode()
+    let g:fastMoveMode = 1 - g:fastMoveMode
+    if (g:fastMoveMode == 0)
+        noremap j j
+        vnoremap j j
+        noremap k k
+        vnoremap k k
+    else
+        noremap j 20j
+        vnoremap j 20j
+        noremap k 20k
+        vnoremap k 20k
+    endif
+endfunction
