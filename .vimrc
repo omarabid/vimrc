@@ -9,6 +9,7 @@ set autochdir
 set rtp+=~/.nvim/bundle/vundle/
 call vundle#begin()
 
+
 " -- Bundles
 "
 
@@ -36,6 +37,10 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
 " Git Gutters
 Bundle 'airblade/vim-gitgutter'
+" Code Completion
+Bundle 'Shougo/deoplete.nvim'
+" Auto Close Brackets
+Bundle 'Raimondi/delimitMate'
 " Undolist viewer
 Bundle 'sjl/gundo.vim'
 " Better HTML editing
@@ -46,6 +51,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'osyo-manga/vim-over'
 " Rust Syntax
 Bundle 'rust-lang/rust.vim'
+" Rust Racer
+Bundle 'racer-rust/vim-racer'
 " VIM Motion
 Bundle 'easymotion/vim-easymotion'
 " Terraform Highlighter
@@ -123,6 +130,14 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
+" Code Completion
+let g:deoplete#enable_at_startup = 1
+
+" Racer
+set hidden
+let g:racer_cmd = "/Users/omarabid/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
+
 " Backup settings
 set nobackup
 set noswapfile
@@ -194,6 +209,7 @@ set pastetoggle=``
 
 " Autoformat document
 nnoremap F gg=G''
+let g:rustfmt_autosave = 1
 
 
 " -- File Syntax Settings
