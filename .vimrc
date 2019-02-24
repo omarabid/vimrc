@@ -19,6 +19,8 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 " Source Code browser 
 Bundle 'majutsushi/tagbar' 
+" Syntastic Code Checking
+"Bundle 'vim-syntastic/syntastic'
 " Properly indent JavaScript Code 
 Bundle 'JavaScript-Indent' 
 " Improved indenting for PHP
@@ -74,9 +76,10 @@ set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
 
 " -- Syntastic Configuration
 "
-let g:syntastic_enable_signs=0
-let g:syntastic_auto_jump=0
-let g:syntastic_stl_ormat = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 " Status line customization
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -94,6 +97,8 @@ filetype plugin indent on
 " Open NerdTree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1 
+let NERDTreeIgnore = ['\.DS_Store$', '.git', 'Cargo.lock']
+nnoremap nj :NERDTreeToggle<CR> 
 
 " Minibuf Configuration
 let g:miniBufExplMapWindowNavVim = 1 
@@ -105,7 +110,6 @@ let g:miniBufExplModSelTarget = 1
 let g:auto_save = 1
 
 " Color Scheme
-set t_Co=256
 colorscheme symfony
 
 " Indentation Settings
@@ -138,13 +142,17 @@ set hidden
 let g:racer_cmd = "/Users/omarabid/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
+" Rust Settings
+let g:rustfmt_autosave = 0
+
 " Backup settings
 set nobackup
 set noswapfile
 
 " Highlight current line
 set cul                                      
-hi CursorLine term=none cterm=none ctermbg=0
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " Backspace properly
 set backspace=indent,eol,start 
@@ -171,7 +179,7 @@ map <silent> <SPACE>h :wincmd h<CR>
 map <silent> <SPACE>l :wincmd l<CR>
 
 " Keymap for TagBar
-nmap <F8> :TagbarToggle<CR>
+nnoremap nk :TagbarToggle<CR>
 
 " Keymap for Syntax Checking
 nmap <F6> :SyntasticCheck<CR>
@@ -179,7 +187,6 @@ nmap <F7> :Errors<CR>
 
 " Keymap for modes switching
 imap jj <Esc>
-nmap nj :make -B<CR>
 
 " keymap for resizing split windows
 map <left> :5winc ><CR>
@@ -208,8 +215,8 @@ nmap <Tab> :bnext<CR>
 set pastetoggle=``
 
 " Autoformat document
-nnoremap F gg=G''
-let g:rustfmt_autosave = 1
+nnoremap F gg=G''<CR>
+autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
 
 
 " -- File Syntax Settings
@@ -227,9 +234,9 @@ map <space>x :bp\|bd #<cr>
 
 " Source: https://stackoverflow.com/a/7898979
 " This, probably, should move to a different file
-map <Space> :call ToggleFastMoveMode()<CR>
+map <Space><Space> :call ToggleFastMoveMode()<CR>
 
-vmap <Space> :call ToggleFastMoveMode()<CR>gv
+vmap <Space><Space> :call ToggleFastMoveMode()<CR>gv
 
 let g:fastMoveMode = 0
 
