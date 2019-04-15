@@ -97,7 +97,7 @@ filetype plugin indent on
 " Open NerdTree
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1 
-let NERDTreeIgnore = ['\.DS_Store$', '.git', 'Cargo.lock']
+let NERDTreeIgnore = ['\.DS_Store$', '.git$', 'Cargo.lock']
 nnoremap nj :NERDTreeToggle<CR> 
 
 " Minibuf Configuration
@@ -239,6 +239,11 @@ map <Space><Space> :call ToggleFastMoveMode()<CR>
 vmap <Space><Space> :call ToggleFastMoveMode()<CR>gv
 
 let g:fastMoveMode = 0
+
+au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
+au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
+au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
+au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
 
 function! ToggleFastMoveMode()
     let g:fastMoveMode = 1 - g:fastMoveMode
