@@ -5,6 +5,10 @@ This repository keeps track of my Vim workflow.
 
 This configuration assumes MacOS (Latest) and a Qwerty keyboard. As of late, my VIM configuration has become focused around Rust.
 
+## Screenshot
+
+![Screen Shoot](VIM-SHOT.png)
+
 ## Vim Setup
 
 1- Install NeoVim. This configuration file is made to work with NeoVim (not gVim or Vi). It might function with VIM but no garantuees.
