@@ -63,5 +63,3 @@ $ :BundleInstall
 8- Use `cc` to comment/uncomment a block of code. More commands are available through the NerdCommenter plugin.
 
 9- Use `:S` to highlight substitution.
-
-10- Use `²` when in insert mode to toggle paste mode.
