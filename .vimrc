@@ -1,9 +1,5 @@
 " Basic Settings
-set nocompatible 
-set fileformats=unix
-syntax on
-filetype off
-set autochdir
+
 
 " Bundles Manager
 set rtp+=~/.nvim/bundle/vundle/
@@ -19,14 +15,10 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 " Source Code browser 
 Bundle 'majutsushi/tagbar' 
-" Syntastic Code Checking
-"Bundle 'vim-syntastic/syntastic'
 " Properly indent JavaScript Code 
 Bundle 'JavaScript-Indent' 
 " Improved indenting for PHP
 Bundle 'vim-scripts/PHP-correct-Indenting'
-" Ultimate PHP plugin
-Bundle 'spf13/PIV'
 " Plenty of color schemes
 Bundle 'flazz/vim-colorschemes' 
 " Easily switch between color schemes
@@ -62,11 +54,36 @@ Bundle 'hashivim/vim-terraform'
 
 call vundle#end()
 
+" ------------------
+" -- VIM Settings --
+" ------------------
+set nocompatible 
+set fileformats=unix
+syntax on
+filetype off
+set autochdir
 filetype plugin indent on
+set noexpandtab
+set shiftwidth=4
+set tabstop=4
+set number
+set mouse=a
+" Backup settings
+set nobackup
+set noswapfile
+" Backspace properly
+set backspace=indent,eol,start 
+" Format tpl files as html 
+au BufReadPost *.tpl set syntax=html
+au BufReadPost *.tpl set filetype=html
 
 " -- Leader Mapping
 "
 let mapleader = ","
+
+" --------------------------
+" -- Plguin Configuration --
+" --------------------------
 
 " -- Airline Configuration
 "
@@ -74,54 +91,40 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
 set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
 
-" -- Syntastic Configuration
+" -- Status line customization
 "
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-" Status line customization
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-" Syntax Checkers
-let g:syntastic_javascript_checkers = ['jslint']
-let g:syntastic_css_checkers = ['csslint']
-let g:syntastic_html_checkers = ['w3']
-let g:syntastic_php_checkers = ['phpcs']
-let g:syntastic_php_phpcs_args="--report=csv --standard=WordPress"
 
-" Bundle Config End
-filetype plugin indent on
-
-" Open NerdTree
+" -- NerdTree Configuration
+"
 autocmd vimenter * NERDTree
 let NERDTreeShowHidden=1 
 let NERDTreeIgnore = ['\.DS_Store$', '.git$', 'Cargo.lock']
 nnoremap nj :NERDTreeToggle<CR> 
 
-" Minibuf Configuration
+" -- Minibuf Configuration
+"
 let g:miniBufExplMapWindowNavVim = 1 
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1 
 
-" AutoSave Settings
+" -- AutoSave Settings
+"
 let g:auto_save = 1
 
-" Color Scheme
+" -- Color Scheme
+"
 colorscheme symfony
+" Remove the underline for the highlighted line. This should be placed here
+" after the colorscheme selection to override its' settings.
+set cul                                      
+hi CursorLine term=bold cterm=bold guibg=Grey40
 
-" Indentation Settings
-set noexpandtab
-set shiftwidth=4
-set tabstop=4
-
-" Coding settings
-set number
-set mouse=a
-
-" Folding Settings
+" -- Folding Settings
+"
 set foldmethod=indent
 set foldlevelstart=1
 
@@ -134,117 +137,81 @@ let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 let xml_syntax_folding=1      " XML
 
-" Code Completion
+" -- deoplete Configuration
+"
 let g:deoplete#enable_at_startup = 1
 
-" Racer
+" -- Rust Racer Configuration
+"
 set hidden
 let g:racer_cmd = "/Users/omarabid/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
-" Rust Settings
+" -- Rust Settings
+"  - Disable Rust Autosave as it conflicts with the autosave plugin
 let g:rustfmt_autosave = 0
+"  - Other
+au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
+au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
+au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
+au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
 
-" Backup settings
-set nobackup
-set noswapfile
-
-" Highlight current line
-set cul                                      
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
-
-" Backspace properly
-set backspace=indent,eol,start 
-
-" -- Custom Commands
+" -- Terraform Highlighting
 "
+let g:terraform_align=1
+
+" -----------------
+" -- Key Mapping --
+" -----------------
 
 " Substitute highlighting
 command S execute "OverCommandLine"
-
-" -- Key Shortcuts
-"
-
 " Disable keyboard arrows
 nnoremap <up> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <down> <nop>
-
 " Keymap for switching panels
 map <silent> <SPACE>k :wincmd k<CR>
 map <silent> <SPACE>j :wincmd j<CR>
 map <silent> <SPACE>h :wincmd h<CR>
 map <silent> <SPACE>l :wincmd l<CR>
-
 " Keymap for TagBar
 nnoremap nk :TagbarToggle<CR>
-
 " Keymap for Syntax Checking
 nmap <F6> :SyntasticCheck<CR>
 nmap <F7> :Errors<CR>
-
 " Keymap for modes switching
 imap jj <Esc>
-
 " keymap for resizing split windows
 map <left> :5winc ><CR>
 map <right> :5winc <<CR>
 map <down> :5winc +<CR>
 map <up> :5winc -<CR>
-
-
 " Selection Shortcuts
 nnoremap B vit
 nnoremap V vat
 nnoremap W viw
 nnoremap X vi(
 nnoremap <expr> C 'vi' . (getline('.') =~ '"' ? '"'  : "'")
-
 " Replace Function
 vmap r "_dP
-
 " Comment Block Toggle
 vmap cc <leader>ci
-
 " Move between buffers
 nmap <Tab> :bnext<CR>
-
-" Keymap for pastemode switching
-set pastetoggle=``
-
 " Autoformat document
 nnoremap F gg=G''<CR>
+" Call RustFmt formatter
 autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
-
-
-" -- File Syntax Settings
-"
-
-" tpl -> html
-au BufReadPost *.tpl set syntax=html
-au BufReadPost *.tpl set filetype=html
-
-" Terraform Highlighting
-let g:terraform_align=1
-
 " close the current buffer 
 map <space>x :bp\|bd #<cr>
-
+" Toggle between fast and slow move modes
 " Source: https://stackoverflow.com/a/7898979
 " This, probably, should move to a different file
 map <Space><Space> :call ToggleFastMoveMode()<CR>
-
 vmap <Space><Space> :call ToggleFastMoveMode()<CR>gv
-
 let g:fastMoveMode = 0
-
-au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
-au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
-au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
-au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
-
 function! ToggleFastMoveMode()
     let g:fastMoveMode = 1 - g:fastMoveMode
     if (g:fastMoveMode == 0)
