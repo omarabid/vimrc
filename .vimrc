@@ -51,6 +51,12 @@ Bundle 'racer-rust/vim-racer'
 Bundle 'easymotion/vim-easymotion'
 " Terraform Highlighter
 Bundle 'hashivim/vim-terraform'
+" Calendar Window for orgmode
+Bundle 'mattn/calendar-vim'
+" Wiki for Vim
+Bundle 'vimwiki/vimwiki'
+" Task Warrior Plugin
+Bundle 'blindFS/vim-taskwarrior'
 
 call vundle#end()
 
@@ -60,19 +66,21 @@ call vundle#end()
 set nocompatible 
 set fileformats=unix
 syntax on
-filetype off
+filetype plugin on
 set autochdir
-filetype plugin indent on
 set noexpandtab
 set shiftwidth=4
 set tabstop=4
 set number
 set mouse=a
+
 " Backup settings
 set nobackup
 set noswapfile
+
 " Backspace properly
 set backspace=indent,eol,start 
+
 " Format tpl files as html 
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
@@ -80,6 +88,7 @@ au BufReadPost *.tpl set filetype=html
 " -- Leader Mapping
 "
 let mapleader = ","
+let maplocalleader = "\\"
 
 " --------------------------
 " -- Plguin Configuration --
@@ -89,7 +98,6 @@ let mapleader = ","
 "
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts=1
-set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
 
 " -- Status line customization
 "
@@ -206,12 +214,19 @@ nnoremap F gg=G''<CR>
 autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
 " close the current buffer 
 map <space>x :bp\|bd #<cr>
+
+" VimWiki Configuration
+let g:vimwiki_list = [{'path': '~/vimwiki/'}]
+let g:vimwiki_folding = 'list'
+let g:vimwiki_list = [{'path': '~/vimwiki/html/', 'auto_export': 1}]
+
 " Toggle between fast and slow move modes
 " Source: https://stackoverflow.com/a/7898979
 " This, probably, should move to a different file
 map <Space><Space> :call ToggleFastMoveMode()<CR>
 vmap <Space><Space> :call ToggleFastMoveMode()<CR>gv
 let g:fastMoveMode = 0
+" Fastmode function
 function! ToggleFastMoveMode()
     let g:fastMoveMode = 1 - g:fastMoveMode
     if (g:fastMoveMode == 0)
