@@ -13,20 +13,14 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 " Directory browser
 Bundle 'scrooloose/nerdtree'
-" Source Code browser 
-Bundle 'majutsushi/tagbar' 
-" Properly indent JavaScript Code 
-Bundle 'JavaScript-Indent' 
-" Improved indenting for PHP
-Bundle 'vim-scripts/PHP-correct-Indenting'
-" Plenty of color schemes
-Bundle 'flazz/vim-colorschemes' 
+" Source Code browser
+Bundle 'majutsushi/tagbar'
 " Easily switch between color schemes
-Bundle 'ScrollColors' 
+Bundle 'ScrollColors'
 " Autosave
-Bundle 'vim-scripts/vim-auto-save' 
+Bundle 'vim-scripts/vim-auto-save'
 " Better Status line
-Bundle 'bling/vim-airline'
+Bundle 'itchyny/lightline.vim'
 " Git Integration
 Bundle 'tpope/vim-fugitive'
 " Git Gutters
@@ -49,21 +43,27 @@ Bundle 'rust-lang/rust.vim'
 Bundle 'racer-rust/vim-racer'
 " VIM Motion
 Bundle 'easymotion/vim-easymotion'
-" Terraform Highlighter
-Bundle 'hashivim/vim-terraform'
 " Calendar Window for orgmode
 Bundle 'mattn/calendar-vim'
 " Wiki for Vim
 Bundle 'vimwiki/vimwiki'
 " Task Warrior Plugin
 Bundle 'blindFS/vim-taskwarrior'
+" Undo Tree
+Bundle 'mbbill/undotree'
+" Edge Theme
+Bundle 'sainnhe/edge'
+" Indenting for various languages
+Bundle 'sheerun/vim-polyglot'
+" Properly mark indentation
+Bundle 'thaerkh/vim-indentguides'
 
 call vundle#end()
 
 " ------------------
 " -- VIM Settings --
 " ------------------
-set nocompatible 
+set nocompatible
 set fileformats=unix
 syntax on
 filetype plugin on
@@ -78,10 +78,28 @@ set mouse=a
 set nobackup
 set noswapfile
 
-" Backspace properly
-set backspace=indent,eol,start 
+" Set Undo File
+set undofile
+" Undo File Location
+" TODO This directory must be created manually
+set undodir=~/.vimundo/
 
-" Format tpl files as html 
+" Backspace properly
+set backspace=indent,eol,start
+
+" Set the edge theme
+set termguicolors
+
+set background=dark
+colorscheme edge
+
+" Handle Clipboard Properly
+" Source: https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
+noremap y "*y
+noremap yy "*yy
+noremap p "*p
+
+" Format tpl files as html
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
 
@@ -90,14 +108,31 @@ au BufReadPost *.tpl set filetype=html
 let mapleader = ","
 let maplocalleader = "\\"
 
+" -- Syntax Checking Toggle
+"
+nnoremap SS :setlocal spell! spelllang=en_us<CR>
+
 " --------------------------
 " -- Plguin Configuration --
 " --------------------------
 
-" -- Airline Configuration
+" -- Indentation highligting configuration
 "
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts=1
+let g:indentguides_spacechar = '┆'
+let g:indentguides_tabchar = '|'
+
+" -- Lightline Configuration
+"
+let g:lightline = {
+			\ 'colorscheme': 'edge',
+			\ 'active': {
+			\   'left': [ [ 'mode', 'paste' ],
+			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+			\ },
+			\ 'component_function': {
+			\   'gitbranch': 'fugitive#head'
+			\ },
+			\ }
 
 " -- Status line customization
 "
@@ -108,27 +143,24 @@ set statusline+=%*
 " -- NerdTree Configuration
 "
 autocmd vimenter * NERDTree
-let NERDTreeShowHidden=1 
+let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$', '.git$', 'Cargo.lock']
-nnoremap nj :NERDTreeToggle<CR> 
+nnoremap nj :NERDTreeToggle<CR>
 
 " -- Minibuf Configuration
 "
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1 
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplMapWindowNavArrows = 1
+let g:miniBufExplMapCTabSwitchBufs = 1
+let g:miniBufExplModSelTarget = 1
 
 " -- AutoSave Settings
 "
 let g:auto_save = 1
 
-" -- Color Scheme
-"
-colorscheme symfony
 " Remove the underline for the highlighted line. This should be placed here
 " after the colorscheme selection to override its' settings.
-set cul                                      
+set cul
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 " -- Folding Settings
@@ -212,7 +244,7 @@ nmap <Tab> :bnext<CR>
 nnoremap F gg=G''<CR>
 " Call RustFmt formatter
 autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
-" close the current buffer 
+" close the current buffer
 map <space>x :bp\|bd #<cr>
 
 " VimWiki Configuration
@@ -226,18 +258,53 @@ let g:vimwiki_list = [{'path': '~/vimwiki/html/', 'auto_export': 1}]
 map <Space><Space> :call ToggleFastMoveMode()<CR>
 vmap <Space><Space> :call ToggleFastMoveMode()<CR>gv
 let g:fastMoveMode = 0
+
 " Fastmode function
 function! ToggleFastMoveMode()
-    let g:fastMoveMode = 1 - g:fastMoveMode
-    if (g:fastMoveMode == 0)
-        noremap j j
-        vnoremap j j
-        noremap k k
-        vnoremap k k
-    else
-        noremap j 20j
-        vnoremap j 20j
-        noremap k 20k
-        vnoremap k 20k
-    endif
+	let g:fastMoveMode = 1 - g:fastMoveMode
+	if (g:fastMoveMode == 0)
+		noremap j j
+		vnoremap j j
+		noremap k k
+		vnoremap k k
+	else
+		noremap j 20j
+		vnoremap j 20j
+		noremap k 20k
+		vnoremap k 20k
+	endif
+endfunction
+
+" Toggle TaskWarrior
+nnoremap nt :call ToggleTaskWarriorMode()<CR>
+vnoremap nt :call ToggleTaskWarriorMode()<CR>gv
+
+let g:TaskWarriorMode = 0
+
+function! ToggleTaskWarriorMode()
+	let g:TaskWarriorMode = 1 - g:TaskWarriorMode
+	if (g:TaskWarriorMode == 0)
+		:close
+	else
+		:split task
+		:resize +100
+		:TW
+	endif
+endfunction
+
+" Toggle Vimwiki
+nnoremap nw :call ToggleVimWikiMode()<CR>
+vnoremap nw :call ToggleVimWikiMode()<CR>gv
+
+let g:VimWikiMode = 0
+
+function! ToggleVimWikiMode()
+	let g:VimWikiMode = 1 - g:VimWikiMode
+	if (g:VimWikiMode == 0)
+		:close
+	else
+		:split wiki
+		:resize +100
+		:e ~/vimwiki/index.wiki
+	endif
 endfunction
