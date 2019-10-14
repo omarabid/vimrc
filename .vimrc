@@ -51,6 +51,10 @@ Bundle 'mbbill/undotree'
 Bundle 'sheerun/vim-polyglot'
 " Properly mark indentation
 Bundle 'thaerkh/vim-indentguides'
+" Highlight Yank
+Bundle 'machakann/vim-highlightedyank'
+" Matchup Code
+Bundle 'andymass/vim-matchup'
 
 call vundle#end()
 
@@ -67,6 +71,8 @@ set shiftwidth=4
 set tabstop=4
 set number
 set mouse=a
+
+set ttyfast
 
 " Backup settings
 set nobackup
@@ -173,12 +179,15 @@ let g:deoplete#enable_at_startup = 1
 " -- Rust Racer Configuration
 "
 set hidden
-let g:racer_cmd = "/Users/omarabid/.cargo/bin/racer"
+let g:racer_cmd = "`~/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
 " -- Rust Settings
 "  - Disable Rust Autosave as it conflicts with the autosave plugin
 let g:rustfmt_autosave = 0
+let g:rustfmt_command = "rustfmt +nightly"
+let g:rustfmt_fail_silently = 0
+
 "  - Other
 au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
 au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
