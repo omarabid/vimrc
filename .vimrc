@@ -15,8 +15,6 @@ Bundle 'gmarik/vundle'
 Bundle 'scrooloose/nerdtree'
 " Source Code browser
 Bundle 'majutsushi/tagbar'
-" Easily switch between color schemes
-Bundle 'ScrollColors'
 " Autosave
 Bundle 'vim-scripts/vim-auto-save'
 " Better Status line
@@ -47,12 +45,8 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'mattn/calendar-vim'
 " Wiki for Vim
 Bundle 'vimwiki/vimwiki'
-" Task Warrior Plugin
-Bundle 'blindFS/vim-taskwarrior'
 " Undo Tree
 Bundle 'mbbill/undotree'
-" Edge Theme
-Bundle 'sainnhe/edge'
 " Indenting for various languages
 Bundle 'sheerun/vim-polyglot'
 " Properly mark indentation
@@ -87,11 +81,6 @@ set undodir=~/.vimundo/
 " Backspace properly
 set backspace=indent,eol,start
 
-" Set the edge theme
-set termguicolors
-
-set background=dark
-colorscheme edge
 
 " Handle Clipboard Properly
 " Source: https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
@@ -248,9 +237,8 @@ autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
 map <space>x :bp\|bd #<cr>
 
 " VimWiki Configuration
-let g:vimwiki_list = [{'path': '~/vimwiki/'}]
+let g:vimwiki_list = [{'path': '~/documents/personal/wiki/', 'path_html': '~/documents/personal/wiki/html/', 'auto_export': 1}]
 let g:vimwiki_folding = 'list'
-let g:vimwiki_list = [{'path': '~/vimwiki/html/', 'auto_export': 1}]
 
 " Toggle between fast and slow move modes
 " Source: https://stackoverflow.com/a/7898979
@@ -275,23 +263,6 @@ function! ToggleFastMoveMode()
 	endif
 endfunction
 
-" Toggle TaskWarrior
-nnoremap nt :call ToggleTaskWarriorMode()<CR>
-vnoremap nt :call ToggleTaskWarriorMode()<CR>gv
-
-let g:TaskWarriorMode = 0
-
-function! ToggleTaskWarriorMode()
-	let g:TaskWarriorMode = 1 - g:TaskWarriorMode
-	if (g:TaskWarriorMode == 0)
-		:close
-	else
-		:split task
-		:resize +100
-		:TW
-	endif
-endfunction
-
 " Toggle Vimwiki
 nnoremap nw :call ToggleVimWikiMode()<CR>
 vnoremap nw :call ToggleVimWikiMode()<CR>gv
@@ -305,6 +276,6 @@ function! ToggleVimWikiMode()
 	else
 		:split wiki
 		:resize +100
-		:e ~/vimwiki/index.wiki
+		:e ~/documents/personal/wiki/index.wiki
 	endif
 endfunction
