@@ -1,6 +1,5 @@
 " Basic Settings
 
-
 " Bundles Manager
 set rtp+=~/.nvim/bundle/vundle/
 call vundle#begin()
@@ -64,15 +63,16 @@ call vundle#end()
 set nocompatible
 set fileformats=unix
 syntax on
-filetype plugin on
+filetype plugin indent on
 set autochdir
-set noexpandtab
-set shiftwidth=4
-set tabstop=4
+set ttyfast
 set number
 set mouse=a
 
-set ttyfast
+set tabstop=4     " Size of a hard tabstop (ts).
+set shiftwidth=4  " Size of an indentation (sw).
+set expandtab   " Always uses tabs instead of space characters (noet).
+set autoindent    " Copy indent from current line when starting a new line (ai).
 
 " Backup settings
 set nobackup
