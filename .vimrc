@@ -24,8 +24,6 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'tpope/vim-fugitive'
 " Git Gutters
 Bundle 'airblade/vim-gitgutter'
-" Code Completion
-Bundle 'Shougo/deoplete.nvim'
 " Auto Close Brackets
 Bundle 'Raimondi/delimitMate'
 " Undolist viewer
@@ -36,10 +34,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 " Substitute highliting
 Bundle 'osyo-manga/vim-over'
-" Rust Syntax
-Bundle 'rust-lang/rust.vim'
-" Rust Racer
-Bundle 'racer-rust/vim-racer'
 " VIM Motion
 Bundle 'easymotion/vim-easymotion'
 " Calendar Window for orgmode
@@ -56,6 +50,11 @@ Bundle 'thaerkh/vim-indentguides'
 Bundle 'machakann/vim-highlightedyank'
 " Matchup Code
 Bundle 'andymass/vim-matchup'
+
+" Semantic language support
+Bundle 'neoclide/coc.nvim', {'branch': 'release'}
+" Rust Syntax
+Bundle 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -107,6 +106,11 @@ noremap p "*p
 " Format tpl files as html
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
+
+
+
+" experiment
+
 
 " -- Leader Mapping
 "
@@ -189,8 +193,8 @@ let g:deoplete#enable_at_startup = 1
 " -- Rust Racer Configuration
 "
 set hidden
-let g:racer_cmd = "`~/.cargo/bin/racer"
-let g:racer_experimental_completer = 1
+
+let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
 
 " -- Rust Settings
 "  - Disable Rust Autosave as it conflicts with the autosave plugin
@@ -204,6 +208,18 @@ au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
 au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
 au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
 
+set updatetime=300
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " -- Terraform Highlighting
 "
 let g:terraform_align=1
@@ -214,11 +230,13 @@ let g:terraform_align=1
 
 " Substitute highlighting
 command S execute "OverCommandLine"
+
 " Disable keyboard arrows
 nnoremap <up> <nop>
 nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <down> <nop>
+
 " Keymap for switching panels
 map <silent> <SPACE>k :wincmd k<CR>
 map <silent> <SPACE>j :wincmd j<CR>
@@ -226,9 +244,7 @@ map <silent> <SPACE>h :wincmd h<CR>
 map <silent> <SPACE>l :wincmd l<CR>
 " Keymap for TagBar
 nnoremap nk :TagbarToggle<CR>
-" Keymap for Syntax Checking
-nmap <F6> :SyntasticCheck<CR>
-nmap <F7> :Errors<CR>
+
 " Keymap for modes switching
 imap jj <Esc>
 " keymap for resizing split windows
