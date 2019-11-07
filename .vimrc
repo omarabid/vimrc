@@ -14,10 +14,6 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 " Directory browser
 Bundle 'scrooloose/nerdtree'
-" Source Code browser
-Bundle 'majutsushi/tagbar'
-" Autosave
-Bundle 'vim-scripts/vim-auto-save'
 " Better Status line
 Bundle 'itchyny/lightline.vim'
 " Git Integration
@@ -26,18 +22,12 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 " Auto Close Brackets
 Bundle 'Raimondi/delimitMate'
-" Undolist viewer
-Bundle 'sjl/gundo.vim'
-" Better HTML editing
-Bundle 'tpope/vim-surround'
 " Nerd Commenting
 Bundle 'scrooloose/nerdcommenter'
 " Substitute highliting
 Bundle 'osyo-manga/vim-over'
 " VIM Motion
 Bundle 'easymotion/vim-easymotion'
-" Calendar Window for orgmode
-Bundle 'mattn/calendar-vim'
 " Wiki for Vim
 Bundle 'vimwiki/vimwiki'
 " Undo Tree
@@ -46,11 +36,8 @@ Bundle 'mbbill/undotree'
 Bundle 'sheerun/vim-polyglot'
 " Properly mark indentation
 Bundle 'thaerkh/vim-indentguides'
-" Highlight Yank
-Bundle 'machakann/vim-highlightedyank'
 " Matchup Code
 Bundle 'andymass/vim-matchup'
-
 " Semantic language support
 Bundle 'neoclide/coc.nvim', {'branch': 'release'}
 " Rust Syntax
@@ -101,16 +88,13 @@ set backspace=indent,eol,start
 " Source: https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
 noremap y "*y
 noremap yy "*yy
-noremap p "*p
+noremap p "*p:w<CR>
+noremap d d:w<CR>
+noremap dd dd:w<CR>
 
 " Format tpl files as html
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
-
-
-
-" experiment
-
 
 " -- Leader Mapping
 "
@@ -133,7 +117,6 @@ let g:indentguides_tabchar = '|'
 " -- Lightline Configuration
 "
 let g:lightline = {
-			\ 'colorscheme': 'edge',
 			\ 'active': {
 			\   'left': [ [ 'mode', 'paste' ],
 			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -163,10 +146,6 @@ let g:miniBufExplMapWindowNavArrows = 1
 let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
-" -- AutoSave Settings
-"
-let g:auto_save = 1
-
 " Remove the underline for the highlighted line. This should be placed here
 " after the colorscheme selection to override its' settings.
 set cul
@@ -178,17 +157,9 @@ set foldmethod=indent
 set foldlevelstart=1
 
 let javaScript_fold=1         " JavaScript
-let perl_fold=1               " Perl
 let php_folding=1             " PHP
-let r_syntax_folding=1        " R
-let ruby_fold=1               " Ruby
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
-let xml_syntax_folding=1      " XML
-
-" -- deoplete Configuration
-"
-let g:deoplete#enable_at_startup = 1
 
 " -- Rust Racer Configuration
 "
@@ -203,12 +174,12 @@ let g:rustfmt_command = "rustfmt +nightly"
 let g:rustfmt_fail_silently = 0
 
 "  - Other
-au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
-au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
-au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
-au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
+"au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
+"au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
+"au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
+"au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
 
-set updatetime=300
+set updatetime=3000
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -219,10 +190,6 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" -- Terraform Highlighting
-"
-let g:terraform_align=1
 
 " -----------------
 " -- Key Mapping --
@@ -242,22 +209,23 @@ map <silent> <SPACE>k :wincmd k<CR>
 map <silent> <SPACE>j :wincmd j<CR>
 map <silent> <SPACE>h :wincmd h<CR>
 map <silent> <SPACE>l :wincmd l<CR>
-" Keymap for TagBar
-nnoremap nk :TagbarToggle<CR>
 
 " Keymap for modes switching
-imap jj <Esc>
+imap jj <Esc>:w<CR>
+
 " keymap for resizing split windows
 map <left> :5winc ><CR>
 map <right> :5winc <<CR>
 map <down> :5winc +<CR>
 map <up> :5winc -<CR>
+
 " Selection Shortcuts
 nnoremap B vit
 nnoremap V vat
 nnoremap W viw
 nnoremap X vi(
 nnoremap <expr> C 'vi' . (getline('.') =~ '"' ? '"'  : "'")
+
 " Replace Function
 vmap r "_dP
 " Comment Block Toggle
