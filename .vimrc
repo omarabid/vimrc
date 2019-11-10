@@ -69,6 +69,7 @@ set scrolloff=2
 set relativenumber
 set number
 set colorcolumn=80
+set tw=80
 
 " Backup settings
 set nobackup
@@ -229,7 +230,7 @@ nnoremap <expr> C 'vi' . (getline('.') =~ '"' ? '"'  : "'")
 " Replace Function
 vmap r "_dP
 " Comment Block Toggle
-vmap cc <leader>ci
+vmap cc <leader>ci :w<CR>
 " Move between buffers
 nmap <Tab> :bnext<CR>
 " Autoformat document
