@@ -43,7 +43,8 @@ Bundle 'rust-lang/rust.vim'
 " HTML/JS Syntax
 Bundle 'maksimr/vim-jsbeautify'
 " JSX/TypeScript highlighting
-Bundle 'peitalin/vim-jsx-typescript'
+Bundle 'HerringtonDarkholme/yats.vim'
+Bundle 'maxmellon/vim-jsx-pretty'
 
 call vundle#end()
 
