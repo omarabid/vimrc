@@ -32,8 +32,6 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'vimwiki/vimwiki'
 " Undo Tree
 Bundle 'mbbill/undotree'
-" Indenting for various languages
-Bundle 'sheerun/vim-polyglot'
 " Properly mark indentation
 Bundle 'thaerkh/vim-indentguides'
 " Matchup Code
@@ -42,6 +40,8 @@ Bundle 'andymass/vim-matchup'
 Bundle 'neoclide/coc.nvim', {'branch': 'release'}
 " Rust Syntax
 Bundle 'rust-lang/rust.vim'
+" HTML/JS Syntax
+Bundle 'maksimr/vim-jsbeautify'
 
 call vundle#end()
 
@@ -118,20 +118,20 @@ let g:indentguides_tabchar = '|'
 " -- Lightline Configuration
 "
 let g:lightline = {
-			\ 'active': {
-			\   'left': [ [ 'mode', 'paste' ],
-			\             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-			\ },
-			\ 'component_function': {
-			\   'gitbranch': 'fugitive#head'
-			\ },
-			\ }
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'fugitive#head'
+            \ },
+            \ }
 
 " -- Status line customization
 "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 " -- NerdTree Configuration
 "
@@ -183,13 +183,13 @@ let g:rustfmt_fail_silently = 0
 set updatetime=3000
 
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+            \ pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " -----------------
@@ -233,12 +233,24 @@ vmap r "_dP
 vmap cc <leader>ci :w<CR>
 " Move between buffers
 nmap <Tab> :bnext<CR>
-" Autoformat document
-nnoremap F gg=G''<CR>
 " Call RustFmt formatter
 autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
 " close the current buffer
 map <space>x :bp\|bd #<cr>
+
+" Formatting
+" Autoformat document
+nnoremap F gg=G''<CR>
+
+autocmd FileType javascript nnoremap F :call JsBeautify()<CR>
+" for json
+autocmd FileType json nnoremap F :call JsonBeautify()<CR>
+" for jsx
+autocmd FileType jsx nnoremap F :call JsxBeautify()<CR>
+" for html
+autocmd FileType html nnoremap F :call HtmlBeautify()<CR>
+" for css or scss
+autocmd FileType css nnoremap F :call CSSBeautify()<CR>
 
 " VimWiki Configuration
 let g:vimwiki_list = [{'path': '~/documents/personal/wiki/', 'path_html': '~/documents/personal/wiki/html/', 'auto_export': 1}]
@@ -253,18 +265,18 @@ let g:fastMoveMode = 0
 
 " Fastmode function
 function! ToggleFastMoveMode()
-	let g:fastMoveMode = 1 - g:fastMoveMode
-	if (g:fastMoveMode == 0)
-		noremap j j
-		vnoremap j j
-		noremap k k
-		vnoremap k k
-	else
-		noremap j 20j
-		vnoremap j 20j
-		noremap k 20k
-		vnoremap k 20k
-	endif
+    let g:fastMoveMode = 1 - g:fastMoveMode
+    if (g:fastMoveMode == 0)
+        noremap j j
+        vnoremap j j
+        noremap k k
+        vnoremap k k
+    else
+        noremap j 20j
+        vnoremap j 20j
+        noremap k 20k
+        vnoremap k 20k
+    endif
 endfunction
 
 " Toggle Vimwiki
@@ -274,12 +286,12 @@ vnoremap nw :call ToggleVimWikiMode()<CR>gv
 let g:VimWikiMode = 0
 
 function! ToggleVimWikiMode()
-	let g:VimWikiMode = 1 - g:VimWikiMode
-	if (g:VimWikiMode == 0)
-		:close
-	else
-		:split wiki
-		:resize +100
-		:e ~/documents/personal/wiki/index.wiki
-	endif
+    let g:VimWikiMode = 1 - g:VimWikiMode
+    if (g:VimWikiMode == 0)
+        :close
+    else
+        :split wiki
+        :resize +100
+        :e ~/documents/personal/wiki/index.wiki
+    endif
 endfunction
