@@ -14,12 +14,16 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 " Directory browser
 Bundle 'scrooloose/nerdtree'
+" Git support for NerdTree
+Bundle 'Xuyuanp/nerdtree-git-plugin'
 " Better Status line
 Bundle 'itchyny/lightline.vim'
 " Git Integration
 Bundle 'tpope/vim-fugitive'
 " Git Gutters
 Bundle 'airblade/vim-gitgutter'
+" Git commits Browser
+Bundle 'junegunn/gv.vim'
 " Auto Close Brackets
 Bundle 'Raimondi/delimitMate'
 " Nerd Commenting
@@ -30,6 +34,9 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'easymotion/vim-easymotion'
 " Wiki for Vim
 Bundle 'vimwiki/vimwiki'
+" Markdown Support
+Bundle 'godlygeek/tabular'
+Bundle 'plasticboy/vim-markdown'
 " Undo Tree
 Bundle 'mbbill/undotree'
 " Properly mark indentation
@@ -208,6 +215,10 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <down> <nop>
 
+" Center screen while scrolling
+nnoremap j jzz
+nnoremap k kzz
+
 " Keymap for switching panels
 map <silent> <SPACE>k :wincmd k<CR>
 map <silent> <SPACE>j :wincmd j<CR>
@@ -259,6 +270,9 @@ autocmd FileType css nnoremap F :call CSSBeautify()<CR>
 let g:vimwiki_list = [{'path': '~/documents/personal/wiki/', 'path_html': '~/documents/personal/wiki/html/', 'auto_export': 1}]
 let g:vimwiki_folding = 'list'
 
+let g:comfortable_motion_scroll_down_key = "j"
+let g:comfortable_motion_scroll_up_key = "k"
+
 " Toggle between fast and slow move modes
 " Source: https://stackoverflow.com/a/7898979
 " This, probably, should move to a different file
@@ -270,10 +284,10 @@ let g:fastMoveMode = 0
 function! ToggleFastMoveMode()
     let g:fastMoveMode = 1 - g:fastMoveMode
     if (g:fastMoveMode == 0)
-        noremap j j
-        vnoremap j j
-        noremap k k
-        vnoremap k k
+        noremap j jzz
+        noremap k kzz
+        vnoremap j jzz
+        vnoremap k kzz
     else
         noremap j 20j
         vnoremap j 20j
