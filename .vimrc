@@ -12,8 +12,11 @@ call vundle#begin()
 
 " Bundle Manager
 Bundle 'gmarik/vundle'
+" Buffer browser
+Bundle 'ap/vim-buftabline'
 " Directory browser
 Bundle 'scrooloose/nerdtree'
+Bundle 'jistr/vim-nerdtree-tabs'
 " Git support for NerdTree
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 " Better Status line
@@ -34,6 +37,8 @@ Bundle 'osyo-manga/vim-over'
 Bundle 'easymotion/vim-easymotion'
 " Wiki for Vim
 Bundle 'vimwiki/vimwiki'
+" Calendar
+Bundle 'itchyny/calendar.vim'
 " Markdown Support
 Bundle 'godlygeek/tabular'
 Bundle 'plasticboy/vim-markdown'
@@ -60,6 +65,7 @@ call vundle#end()
 " ------------------
 set nocompatible
 set fileformats=unix
+set hidden
 syntax on
 filetype plugin indent on
 set autochdir
@@ -150,13 +156,6 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$', '.git$', 'Cargo.lock']
 nnoremap nj :NERDTreeToggle<CR>
 
-" -- Minibuf Configuration
-"
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplMapWindowNavArrows = 1
-let g:miniBufExplMapCTabSwitchBufs = 1
-let g:miniBufExplModSelTarget = 1
-
 " Remove the underline for the highlighted line. This should be placed here
 " after the colorscheme selection to override its' settings.
 set cul
@@ -172,9 +171,9 @@ let php_folding=1             " PHP
 let sh_fold_enabled=1         " sh
 let vimsyn_folding='af'       " Vim script
 
+
 " -- Rust Racer Configuration
 "
-set hidden
 
 let $RUST_SRC_PATH = systemlist("rustc --print sysroot")[0] . "/lib/rustlib/src/rust/src"
 
@@ -247,10 +246,13 @@ vmap r "_dP
 vmap cc <leader>ci :w<CR>
 " Move between buffers
 nmap <Tab> :bnext<CR>
+
 " Call RustFmt formatter
+" TODO: move this from here
 autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
+
 " close the current buffer
-map <space>x :bp\|bd #<cr>
+map c :bp\|bd #<cr>
 
 " Formatting
 " Autoformat document
