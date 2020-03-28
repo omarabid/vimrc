@@ -60,6 +60,9 @@ nmap <Tab> :bnext<CR>
 " close the current buffer
 map c :bp\|bd #<cr>
 
+" close split window
+map x :close<cr>
+
 " Formatting
 " Autoformat document
 nnoremap F gg=G''<CR>
