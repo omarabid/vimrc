@@ -58,5 +58,7 @@ Bundle 'maksimr/vim-jsbeautify'
 " JSX/TypeScript highlighting
 Bundle 'HerringtonDarkholme/yats.vim'
 Bundle 'maxmellon/vim-jsx-pretty'
+" Terraform Highlighting
+Bundle 'hashivim/vim-terraform'
 
 call vundle#end()
