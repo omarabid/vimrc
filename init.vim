@@ -55,6 +55,8 @@ Bundle 'neoclide/coc.nvim', {'branch': 'release'}
 Bundle 'rust-lang/rust.vim'
 " HTML/JS Syntax
 Bundle 'maksimr/vim-jsbeautify'
+" Vue.js Syntax
+Bundle 'posva/vim-vue'
 " JSX/TypeScript highlighting
 Bundle 'HerringtonDarkholme/yats.vim'
 Bundle 'maxmellon/vim-jsx-pretty'
