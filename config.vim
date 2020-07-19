@@ -28,6 +28,11 @@ set colorcolumn=80
 set nobackup
 set noswapfile
 
+" Gui Settings
+set nofoldenable
+set ttyfast
+set lazyredraw
+
 " Set Undo File
 set undofile
 " Undo File Location
