@@ -64,5 +64,7 @@ Bundle 'maxmellon/vim-jsx-pretty'
 Bundle 'hashivim/vim-terraform'
 " CSS colors
 Bundle 'ap/vim-css-color'
+" Buffer Explorer
+Bundle 'vim-scripts/bufexplorer.zip'
 
 call vundle#end()
