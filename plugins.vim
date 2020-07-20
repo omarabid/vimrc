@@ -54,12 +54,6 @@ let g:rustfmt_autosave = 0
 let g:rustfmt_command = "rustfmt +nightly"
 let g:rustfmt_fail_silently = 0
 
-"  - Other
-"au FileType rust nmap <silent> <C-]> <Plug>(rust-def)
-"au FileType rust nmap <silent> <C-w><C-]> <Plug>(rust-def-vertical)
-"au FileType rust nmap <silent> <C-w>} <Plug>(rust-def-split)
-"au FileType rust nmap <silent> <C-k> <Plug>(rust-doc)
-
 set updatetime=3000
 
 inoremap <silent><expr> <TAB>
@@ -74,6 +68,7 @@ endfunction
 
 " Call RustFmt formatter
 " TODO: move this from here
+autocmd BufRead,BufNewFile *.vue setfiletype html
 autocmd FileType rust nnoremap<buffer> F :RustFmt<CR>
 
 autocmd FileType javascript nnoremap F :call JsBeautify()<CR>
@@ -85,6 +80,8 @@ autocmd FileType jsx nnoremap F :call JsxBeautify()<CR>
 autocmd FileType html nnoremap F :call HtmlBeautify()<CR>
 " for css or scss
 autocmd FileType css nnoremap F :call CSSBeautify()<CR>
+autocmd FileType scss nnoremap F :call CSSBeautify()<CR>
+autocmd FileType sass nnoremap F :call CSSBeautify()<CR>
 
 " VimWiki Configuration
 let g:vimwiki_list = [{'path': '~/documents/personal/wiki/', 'path_html': '~/documents/personal/wiki/html/', 'auto_export': 1}]
