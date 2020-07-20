@@ -40,31 +40,33 @@ Bundle 'easymotion/vim-easymotion'
 Bundle 'vimwiki/vimwiki'
 " Calendar
 Bundle 'itchyny/calendar.vim'
-" Markdown Support
-Bundle 'godlygeek/tabular'
-Bundle 'plasticboy/vim-markdown'
 " Undo Tree
 Bundle 'mbbill/undotree'
 " Properly mark indentation
 Bundle 'thaerkh/vim-indentguides'
 " Matchup Code
 Bundle 'andymass/vim-matchup'
-" Semantic language support
-Bundle 'neoclide/coc.nvim', {'branch': 'release'}
-" Rust Syntax
-Bundle 'rust-lang/rust.vim'
-" HTML/JS Syntax
-Bundle 'maksimr/vim-jsbeautify'
-" Vue.js Syntax
-Bundle 'posva/vim-vue'
-" JSX/TypeScript highlighting
-Bundle 'HerringtonDarkholme/yats.vim'
-Bundle 'maxmellon/vim-jsx-pretty'
-" Terraform Highlighting
-Bundle 'hashivim/vim-terraform'
-" CSS colors
-Bundle 'ap/vim-css-color'
 " Buffer Explorer
 Bundle 'vim-scripts/bufexplorer.zip'
+
+" Syntactic language support
+Bundle 'maksimr/vim-jsbeautify'
+" HTML/JS Syntax
+Bundle 'rust-lang/rust.vim' 
+" Rust Syntax
+Bundle 'neoclide/coc.nvim', {'branch': 'release'} 
+" Semantic language support
+Bundle 'posva/vim-vue' 
+" Vue.js Syntax
+Bundle 'HerringtonDarkholme/yats.vim' 
+" JSX/TypeScript highlighting
+Bundle 'maxmellon/vim-jsx-pretty'
+Bundle 'hashivim/vim-terraform' 
+" Terraform Highlighting
+Bundle 'ap/vim-css-color' 
+" CSS colors
+Bundle 'godlygeek/tabular' 
+" Markdown Support
+Bundle 'plasticboy/vim-markdown'
 
 call vundle#end()
