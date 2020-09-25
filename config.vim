@@ -13,8 +13,9 @@ set mouse=a
 
 set tabstop=4     " Size of a hard tabstop (ts).
 set shiftwidth=4  " Size of an indentation (sw).
-set expandtab   " Always uses tabs instead of space characters (noet).
+set expandtab     " Always uses tabs instead of space characters (noet).
 set autoindent    " Copy indent from current line when starting a new line (ai).
+set noshowmode    " Not needed as Lightline replaces this functionality
 
 set encoding=utf-8
 set timeoutlen=300
