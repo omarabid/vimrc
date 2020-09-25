@@ -45,3 +45,4 @@ set backspace=indent,eol,start
 " Format tpl files as html
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
+au BufReadPost,BufRead,BufNewFile *.scss set filetype=css
