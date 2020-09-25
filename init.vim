@@ -29,12 +29,21 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 " Better Status line
 Bundle 'itchyny/lightline.vim'
+
+" ===================
+"   Git integration
+" ===================
+
 " Git Integration
 Bundle 'tpope/vim-fugitive'
 " Git Gutters
 Bundle 'airblade/vim-gitgutter'
 " Git commits Browser
 Bundle 'junegunn/gv.vim'
+
+"fzf plugin
+Bundle 'junegunn/fzf.vim'
+
 " Auto Close Brackets
 Bundle 'Raimondi/delimitMate'
 " Nerd Commenting
