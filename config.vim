@@ -33,6 +33,12 @@ set nofoldenable
 set ttyfast
 set lazyredraw
 
+" Color Schemes
+set termguicolors
+colorscheme gruvbox
+autocmd vimenter * colorscheme gruvbox
+set background=dark    " Setting dark mode
+
 " Set Undo File
 set undofile
 " Undo File Location
@@ -45,4 +51,5 @@ set backspace=indent,eol,start
 " Format tpl files as html
 au BufReadPost *.tpl set syntax=html
 au BufReadPost *.tpl set filetype=html
+" Format scss files as css
 au BufReadPost,BufRead,BufNewFile *.scss set filetype=css

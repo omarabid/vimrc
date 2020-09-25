@@ -13,6 +13,13 @@ call vundle#begin()
 
 " Bundle Manager
 Bundle 'gmarik/vundle'
+
+" ===========
+"   Styling
+" ===========
+
+" Color Scheme
+Bundle 'morhetz/gruvbox'
 " Buffer browser
 Bundle 'ap/vim-buftabline'
 " Directory browser

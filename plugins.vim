@@ -10,6 +10,7 @@ let g:indentguides_tabchar = '|'
 " -- Lightline Configuration
 "
 let g:lightline = {
+            \ 'colorscheme': 'gruvbox',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
