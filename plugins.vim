@@ -27,6 +27,11 @@ let NERDTreeShowHidden=1
 let NERDTreeIgnore = ['\.DS_Store$', '.git$', 'Cargo.lock']
 nnoremap nj :NERDTreeToggle<CR>
 
+" -- Git Functionalities
+"
+"
+nnoremap ng :GV<CR>
+
 " Remove the underline for the highlighted line. This should be placed here
 " after the colorscheme selection to override its' settings.
 set cul
