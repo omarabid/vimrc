@@ -25,8 +25,6 @@ Bundle 'ap/vim-buftabline'
 " Directory browser
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
-" Git support for NerdTree
-Bundle 'Xuyuanp/nerdtree-git-plugin'
 " Better Status line
 Bundle 'itchyny/lightline.vim'
 
@@ -40,6 +38,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'airblade/vim-gitgutter'
 " Git commits Browser
 Bundle 'junegunn/gv.vim'
+" Git support for NerdTree
+Bundle 'Xuyuanp/nerdtree-git-plugin'
 
 "fzf plugin
 Bundle 'junegunn/fzf.vim'

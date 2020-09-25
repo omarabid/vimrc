@@ -33,6 +33,20 @@ nnoremap nj :NERDTreeToggle<CR>
 "
 nnoremap ng :GV<CR>
 
+" NerdTree git styles
+let g:NERDTreeGitStatusIndicatorMapCustom = {
+                \ 'Modified'  :'*',
+                \ 'Staged'    :'+',
+                \ 'Untracked' :'o',
+                \ 'Renamed'   :'R',
+                \ 'Unmerged'  :'=',
+                \ 'Deleted'   :'x',
+                \ 'Dirty'     :'X',
+                \ 'Ignored'   :'I',
+                \ 'Clean'     :'C',
+                \ 'Unknown'   :'?',
+                \ }
+
 " Remove the underline for the highlighted line. This should be placed here
 " after the colorscheme selection to override its' settings.
 set cul
