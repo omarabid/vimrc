@@ -27,6 +27,8 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 " Better Status line
 Bundle 'itchyny/lightline.vim'
+" Welcome Screen
+Bundle 'mhinz/vim-startify'
 
 " ===================
 "   Git integration

@@ -7,6 +7,18 @@
 let g:indentguides_spacechar = '┆'
 let g:indentguides_tabchar = '|'
 
+" -- Startify configuratuin
+"
+let g:startify_custom_header = [
+            \ '',
+            \ '',
+            \ '',
+            \ '--- Things appear simple at first ---',
+            \ '',
+            \ '',
+            \ '',
+            \ ]
+
 " -- Lightline Configuration
 "
 let g:lightline = {
