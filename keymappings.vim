@@ -9,9 +9,9 @@ let maplocalleader = "\\"
 
 " Handle Clipboard Properly
 " Source: https://vi.stackexchange.com/questions/84/how-can-i-copy-text-to-the-system-clipboard-from-vim
-noremap y "*y
-noremap yy "*yy
-noremap p "*p:w<CR>
+noremap y "+y
+noremap yy "+yy
+noremap p "+p:w<CR>
 noremap d d:w<CR>
 noremap dd dd:w<CR>
 
