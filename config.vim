@@ -36,9 +36,10 @@ set lazyredraw
 
 " Color Schemes
 set termguicolors
+set t_Co=256
+set bg=dark    " Setting dark mode
 colorscheme gruvbox
 autocmd vimenter * colorscheme gruvbox
-set background=dark    " Setting dark mode
 
 " Set Undo File
 set undofile
