@@ -67,10 +67,6 @@ map x :close<cr>
 " Autoformat document
 nnoremap F gg=G''<CR>
 
-" Custom Keyboard (with help from xmodmap)
-noremap 4 $
-noremap 6 ^
-
 inoremap <Esc>q {
 inoremap <Esc>w }
 inoremap <Esc>a [
