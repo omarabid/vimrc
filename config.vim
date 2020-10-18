@@ -7,6 +7,8 @@ set hidden
 syntax on
 filetype plugin indent on
 set autochdir
+set autoread " when a file has been detected to have been changed, read it again
+au FocusGained,BufEnter * :checktime " autoreload on focus
 set ttyfast
 set number
 set mouse=a
