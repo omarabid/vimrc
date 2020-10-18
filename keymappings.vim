@@ -63,6 +63,9 @@ map c :bp\|bd #<cr>
 " close split window
 map x :close<cr>
 
+" Easier to write commands
+map ; :
+
 " Formatting
 " Autoformat document
 nnoremap F gg=G''<CR>
