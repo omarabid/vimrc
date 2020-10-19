@@ -17,7 +17,6 @@ Bundle 'gmarik/vundle'
 " ===========
 "   Styling
 " ===========
-
 " Color Scheme
 Bundle 'morhetz/gruvbox'
 " Buffer browser
@@ -29,6 +28,8 @@ Bundle 'jistr/vim-nerdtree-tabs'
 Bundle 'itchyny/lightline.vim'
 " Welcome Screen
 Bundle 'mhinz/vim-startify'
+" Vim-Clap
+Bundle 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 
 " ===================
 "   Git integration
