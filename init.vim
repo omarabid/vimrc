@@ -43,6 +43,10 @@ Bundle 'junegunn/gv.vim'
 " Git support for NerdTree
 Bundle 'Xuyuanp/nerdtree-git-plugin'
 
+" =======================
+"   Text manipulation
+" =======================
+
 "fzf plugin
 Bundle 'junegunn/fzf.vim'
 " Automatically set paste mode
@@ -52,8 +56,6 @@ Bundle 'roxma/vim-paste-easy'
 Bundle 'Raimondi/delimitMate'
 " Nerd Commenting
 Bundle 'scrooloose/nerdcommenter'
-" Substitute highliting
-Bundle 'osyo-manga/vim-over'
 " VIM Motion
 Bundle 'easymotion/vim-easymotion'
 " Wiki for Vim
