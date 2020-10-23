@@ -115,9 +115,6 @@ autocmd FileType css nnoremap F :call CSSBeautify()<CR>
 autocmd FileType scss nnoremap F :call CSSBeautify()<CR>
 autocmd FileType sass nnoremap F :call CSSBeautify()<CR>
 
-" VimWiki Configuration
-let g:vimwiki_list = [{'path': '~/documents/personal/wiki/', 'path_html': '~/documents/personal/wiki/html/', 'auto_export': 1}]
-let g:vimwiki_folding = 'list'
 
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"

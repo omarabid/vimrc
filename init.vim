@@ -59,8 +59,6 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'scrooloose/nerdcommenter'
 " VIM Motion
 Bundle 'easymotion/vim-easymotion'
-" Wiki for Vim
-Bundle 'vimwiki/vimwiki'
 " Calendar
 Bundle 'itchyny/calendar.vim'
 " Undo Tree
