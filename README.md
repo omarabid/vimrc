@@ -3,7 +3,7 @@ vimrc
 
 This repository keeps track of my Vim workflow.
 
-This configuration assumes MacOS (Latest) and a Qwerty keyboard. As of late, my VIM configuration has become focused around Rust.
+As of lately, I'm using Neovim with Archlinux/Alacritty. I'll be testing the configuration with MacOS but so far no compatibility is guaranteed.
 
 ## Screenshot
 
