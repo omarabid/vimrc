@@ -1,3 +1,7 @@
+"Other configuration
+"Ruby
+let g:ruby_host_prog ='~/.gem/ruby/2.7.0/bin/neovim-ruby-host'
+
 " --------------------------
 " -- Plguin Configuration --
 " --------------------------
