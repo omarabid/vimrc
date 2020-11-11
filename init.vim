@@ -43,6 +43,8 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'junegunn/gv.vim'
 " Git support for NerdTree
 Bundle 'Xuyuanp/nerdtree-git-plugin'
+" Vimagit Plugin
+Bundle 'jreybert/vimagit'
 
 " =======================
 "   Text manipulation
