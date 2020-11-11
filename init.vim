@@ -30,6 +30,8 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'mhinz/vim-startify'
 " Vim-Clap
 Bundle 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+" Icons for file types
+Bundle 'ryanoasis/vim-devicons'
 
 " ===================
 "   Git integration
