@@ -40,6 +40,8 @@ set lazyredraw
 set termguicolors
 set t_Co=256
 set bg=dark    " Setting dark mode
+
+set guifont=MesloLGS\ NF:h15 " Set Font for GUI editors
 colorscheme gruvbox
 autocmd vimenter * colorscheme gruvbox
 
