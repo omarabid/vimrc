@@ -23,6 +23,10 @@ let g:startify_custom_header = [
             \ '',
             \ ]
 
+" --- Airline Configuration
+"
+let g:airline_theme='jellybeans'
+
 
 " -- NerdTree Configuration
 "

@@ -26,6 +26,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 " Better Status line
 Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 " Welcome Screen
 Bundle 'mhinz/vim-startify'
 " Vim-Clap
