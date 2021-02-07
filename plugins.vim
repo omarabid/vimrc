@@ -23,19 +23,6 @@ let g:startify_custom_header = [
             \ '',
             \ ]
 
-" -- Lightline Configuration
-"
-let g:lightline = {
-            \ 'colorscheme': 'gruvbox',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-            \ },
-            \ 'component_function': {
-            \   'gitbranch': 'fugitive#head'
-            \ },
-            \ }
-
 
 " -- NerdTree Configuration
 "
