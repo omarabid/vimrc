@@ -16,7 +16,7 @@ noremap d d:w<CR>
 noremap dd dd:w<CR>
 
 " Substitute highlighting
-command S execute "OverCommandLine"
+noremap E :OverCommandLine<CR>
 
 " Disable keyboard arrows
 nnoremap <up> <nop>

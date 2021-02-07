@@ -17,6 +17,7 @@ Bundle 'gmarik/vundle'
 " ===========
 "   Styling
 " ===========
+
 " Color Scheme
 Bundle 'morhetz/gruvbox'
 " Buffer browser
@@ -57,7 +58,6 @@ Bundle 'jreybert/vimagit'
 Bundle 'junegunn/fzf.vim'
 " Automatically set paste mode
 Bundle 'roxma/vim-paste-easy'
-
 " Auto Close Brackets
 Bundle 'Raimondi/delimitMate'
 " Nerd Commenting
@@ -74,6 +74,11 @@ Bundle 'thaerkh/vim-indentguides'
 Bundle 'andymass/vim-matchup'
 " Buffer Explorer
 Bundle 'vim-scripts/bufexplorer.zip'
+Bundle 'osyo-manga/vim-over'
+
+" =======================
+"  Syntax Plugins 
+" =======================
 
 " Syntactic language support
 Bundle 'maksimr/vim-jsbeautify'
@@ -87,6 +92,7 @@ Bundle 'posva/vim-vue'
 Bundle 'HerringtonDarkholme/yats.vim' 
 " JSX/TypeScript highlighting
 Bundle 'maxmellon/vim-jsx-pretty'
+" Terraform Highlighting
 Bundle 'hashivim/vim-terraform' 
 " Terraform Highlighting
 Bundle 'ap/vim-css-color' 
