@@ -113,3 +113,7 @@ autocmd FileType sass nnoremap F :call CSSBeautify()<CR>
 
 let g:comfortable_motion_scroll_down_key = "j"
 let g:comfortable_motion_scroll_up_key = "k"
+
+" Clap Configuration
+"
+nnoremap L :Clap<CR>
