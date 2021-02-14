@@ -83,6 +83,11 @@ let g:rustfmt_fail_silently = 0
 
 set updatetime=3000
 
+" -- Coc Configuration
+"
+
+let g:coc_global_extensions = ['coc-tsserver', 'coc-css', 'coc-html', 'coc-json', 'coc-rls', 'coc-rust-analyzer', 'coc-graphql', 'coc-highlight', 'coc-svg', 'coc-toml', 'coc-yaml']
+
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
             \ <SID>check_back_space() ? "\<TAB>" :
