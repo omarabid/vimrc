@@ -122,3 +122,9 @@ let g:comfortable_motion_scroll_up_key = "k"
 " Clap Configuration
 "
 nnoremap L :Clap<CR>
+
+let g:dbs = {
+            \    'dev': 'postgres://postgres:1csomar@192.168.2.100/cargo'
+            \}
+
+let g:db_ui_auto_execute_table_helpers = 1

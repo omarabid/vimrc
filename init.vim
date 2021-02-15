@@ -101,4 +101,14 @@ Bundle 'godlygeek/tabular'
 " Markdown Support
 Bundle 'plasticboy/vim-markdown'
 
+" Currently Testing
+Bundle 'skywind3000/asyncrun.vim'
+Bundle 'wellle/context.vim'
+Bundle 'tpope/vim-dadbod'
+Bundle 'kristijanhusak/vim-dadbod-ui'
+
+" neovim 5
+"Bundle 'Xuyuanp/scrollbar.nvim'
+
+
 call vundle#end()
