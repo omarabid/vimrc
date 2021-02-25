@@ -5,10 +5,6 @@ This repository keeps track of my Vim workflow.
 
 As of lately, I'm using Neovim with Archlinux/Alacritty. I'll be testing the configuration with MacOS but so far no compatibility is guaranteed.
 
-## Screenshot
-
-![Screen Shoot](VIM-SHOT.png)
-
 ## Vim Setup
 
 1- Install NeoVim. This configuration file is made to work with NeoVim (not gVim or Vi). It might function with VIM but no garantuees.
