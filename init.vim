@@ -104,9 +104,6 @@ Bundle 'plasticboy/vim-markdown'
 " Currently Testing
 Bundle 'skywind3000/asyncrun.vim'
 Bundle 'wellle/context.vim'
-Bundle 'tpope/vim-dadbod'
-Bundle 'kristijanhusak/vim-dadbod-ui'
-Bundle 'pwntester/octo.nvim'
 
 " neovim 5
 "Bundle 'Xuyuanp/scrollbar.nvim'
