@@ -82,3 +82,6 @@ inoremap *a [
 inoremap *s ]
 inoremap *z "
 inoremap *x |
+
+" Display image (kind of a hack)
+:autocmd BufEnter *.png,*.jpg,*gif exec "! feh ".expand("%") | :bw
