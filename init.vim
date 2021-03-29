@@ -56,8 +56,6 @@ Bundle 'jreybert/vimagit'
 
 "fzf plugin
 Bundle 'junegunn/fzf.vim'
-" Automatically set paste mode
-Bundle 'roxma/vim-paste-easy'
 " Auto Close Brackets
 Bundle 'Raimondi/delimitMate'
 " Nerd Commenting
